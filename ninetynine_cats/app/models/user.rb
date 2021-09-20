@@ -5,6 +5,11 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_many :cats,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Cat
+
     def self.find_by_credentials(user_name, password)
         user = User.find_by(user_name: user_name)
 

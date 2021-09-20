@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+    before_action :require_log_out, only: [:new, :create]
+
     def new
         @user = User.new
         # render :new
@@ -10,7 +13,7 @@ class SessionsController < ApplicationController
         if @user
             # new_session_token = @user.reset_session_token!
             # session[:session_token] = new_session_token
-            login(@user)
+            login_user!(@user)
             redirect_to cats_url
         else
             redirect_to cats_url
