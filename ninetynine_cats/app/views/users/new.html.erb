@@ -1,0 +1,11 @@
+<form action="<%= users_url %>" method="POST">
+    <label for="user_name">Username:
+        <input id="user_name" type="text" name="user[user_name]">
+    </label>
+
+    <label for="password">Password:
+        <input id="password" type="password" name="user[password]">
+    </label>
+
+    <input type="submit" value="Create User">
+</form>
